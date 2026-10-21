@@ -211,7 +211,8 @@ export async function getDomaines(): Promise<Domaine[]> {
     throw new Error(`Impossible de charger les domaines: ${error.message}`);
   }
 
-  return ((data ?? []) as RawDomaine[]).map(mapDomaine);
+  const rows = (data ?? []) as unknown as RawDomaine[];
+  return rows.map(mapDomaine);
 }
 
 export async function getDomaineBySlug(slug: string): Promise<Domaine | null> {
