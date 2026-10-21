@@ -1,18 +1,25 @@
 import { createClient } from "@supabase/supabase-js";
 
 function getSupabaseConfig() {
-  // 1. On récupère les variables
   const rawUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const rawKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-  // 2. On nettoie TOUT : espaces avant/après et slash à la fin
   const url = rawUrl?.trim().replace(/\/$/, "");
   const anonKey = rawKey?.trim();
 
+  // LE MOUCHARD : Si ça plante, on saura pourquoi
   if (!url || !anonKey) {
     throw new Error(
-      "Variables NEXT_PUBLIC_SUPABASE_URL et NEXT_PUBLIC_SUPABASE_ANON_KEY requises.",
+      `VARIABLES MANQUANTES DANS VERCEL ! 
+       URL reçue: "${url}" 
+       KEY reçue: "${anonKey ? 'OK' : 'VIDE'}"
+       Vérifie les "Project Settings" > "Environments" sur Vercel.`
     );
+  }
+
+  // Vérification de format
+  if (!url.startsWith('https://')) {
+     throw new Error(`URL INVALIDE : "${url}". Elle doit commencer par https://`);
   }
 
   return { url, anonKey };
