@@ -1,8 +1,13 @@
 import { createClient } from "@supabase/supabase-js";
 
 function getSupabaseConfig() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  // 1. On récupère les variables
+  const rawUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const rawKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  // 2. On nettoie TOUT : espaces avant/après et slash à la fin
+  const url = rawUrl?.trim().replace(/\/$/, "");
+  const anonKey = rawKey?.trim();
 
   if (!url || !anonKey) {
     throw new Error(
