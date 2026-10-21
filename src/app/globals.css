@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f3ec;
+  --foreground: #2c322c;
+  --forest: #3e5c45;
+  --forest-dark: #2f4a38;
+  --muted: #8b9288;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.leaflet-container {
+  background: #e8eee6;
+  font-family: var(--font-sans), sans-serif;
+  border-radius: 1.25rem;
+}
+
+.leaflet-control-zoom {
+  border: 0 !important;
+  box-shadow: 0 8px 24px rgba(47, 74, 56, 0.12) !important;
+}
+
+.leaflet-control-zoom a {
+  width: 34px !important;
+  height: 34px !important;
+  line-height: 34px !important;
+  color: #2f4a38 !important;
+  border: 0 !important;
+}
+
+.vinalia-pin {
+  background: transparent;
+  border: none;
+}
+
+.vinalia-popup .leaflet-popup-content-wrapper {
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(44, 50, 44, 0.16);
+  padding: 2px 2px 4px;
+}
+
+.vinalia-popup .leaflet-popup-content {
+  margin: 12px 14px 14px;
+}
+
+.vinalia-popup .leaflet-popup-tip {
+  box-shadow: none;
+}
+
+.vinalia-popup a.leaflet-popup-close-button {
+  color: #8b9288;
+  font-size: 16px;
+  top: 6px;
+  right: 8px;
+}
+
+.vinalia-tooltip.leaflet-tooltip {
+  border: 0;
+  border-radius: 14px;
+  background: #fffdf8;
+  color: #2c322c;
+  box-shadow: 0 12px 32px rgba(44, 50, 44, 0.16);
+  padding: 10px 12px;
+  white-space: normal;
+}
+
+.vinalia-tooltip.leaflet-tooltip-top::before {
+  border-top-color: #fffdf8;
+}
