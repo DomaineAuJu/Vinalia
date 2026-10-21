@@ -1,4 +1,3 @@
-import { cacheLife } from "next/cache";
 import { createSupabaseClient } from "@/lib/supabase";
 import type {
   Appellation,
@@ -202,13 +201,10 @@ const domaineSelect = `
 `;
 
 export async function getDomaines(): Promise<Domaine[]> {
-  "use cache";
-  cacheLife("hours");
-
   const supabase = createSupabaseClient();
   const { data, error } = await supabase
     .from("domaines")
-    .select(domaineSelect)
+    .select(domaineSelect.replace(/\s+/g, " ").trim())
     .order("nom", { ascending: true });
 
   if (error) {

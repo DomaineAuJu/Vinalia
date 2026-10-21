@@ -1,25 +1,29 @@
 import { createClient } from "@supabase/supabase-js";
 
+function normalizeSupabaseUrl(raw: string): string {
+  let url = raw.trim().replace(/^["']|["']$/g, "").trim();
+  url = url.replace(/\/+$/, "");
+  url = url.replace(/\/(rest|auth|storage|realtime)\/v1$/i, "");
+  return url;
+}
+
 function getSupabaseConfig() {
   const rawUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const rawKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-  const url = rawUrl?.trim().replace(/\/$/, "");
+  const url = rawUrl ? normalizeSupabaseUrl(rawUrl) : "";
   const anonKey = rawKey?.trim();
 
-  // LE MOUCHARD : Si ça plante, on saura pourquoi
   if (!url || !anonKey) {
     throw new Error(
-      `VARIABLES MANQUANTES DANS VERCEL ! 
-       URL reçue: "${url}" 
-       KEY reçue: "${anonKey ? 'OK' : 'VIDE'}"
-       Vérifie les "Project Settings" > "Environments" sur Vercel.`
+      `Variables NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY manquantes dans Vercel.`,
     );
   }
 
-  // Vérification de format
-  if (!url.startsWith('https://')) {
-     throw new Error(`URL INVALIDE : "${url}". Elle doit commencer par https://`);
+  if (!url.startsWith("https://")) {
+    throw new Error(
+      `NEXT_PUBLIC_SUPABASE_URL invalide (doit commencer par https://).`,
+    );
   }
 
   return { url, anonKey };

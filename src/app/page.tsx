@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import { connection } from "next/server";
 import { Explorer } from "@/components/explorer";
 import { getDomaines } from "@/lib/domaines";
 
@@ -11,12 +12,16 @@ function ExplorerFallback() {
   );
 }
 
-export default async function HomePage() {
+async function HomeExplorer() {
+  await connection();
   const domaines = await getDomaines();
+  return <Explorer domaines={domaines} />;
+}
 
+export default function HomePage() {
   return (
     <Suspense fallback={<ExplorerFallback />}>
-      <Explorer domaines={domaines} />
+      <HomeExplorer />
     </Suspense>
   );
 }
