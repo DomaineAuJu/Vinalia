@@ -3,13 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { bottleImageForCouleur } from "@/lib/couleurs-ui";
-import { getDomaineBySlug, getDomaines } from "@/lib/domaines";
+import { getDomaineBySlug } from "@/lib/domaines";
 import type { Cuvee } from "@/lib/types";
 
-export async function generateStaticParams() {
-  const domaines = await getDomaines();
-  return domaines.map((domaine) => ({ slug: domaine.slug }));
-}
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 type DomainePageProps = {
   params: Promise<{ slug: string }>;
