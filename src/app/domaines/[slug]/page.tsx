@@ -6,8 +6,6 @@ import { bottleImageForCouleur } from "@/lib/couleurs-ui";
 import { getDomaineBySlug } from "@/lib/domaines";
 import type { Cuvee } from "@/lib/types";
 
-export const dynamic = "force-dynamic";
-
 type DomainePageProps = {
   params: Promise<{ slug: string }>;
 };
