@@ -215,7 +215,9 @@ async function DomaineContent({ params }: DomainePageProps) {
                     >
                       <div className="flex items-center gap-2">
                         <Image
-                          src={bottleImageForCouleur(cuvee.couleurs[0]?.nom)}
+                          src={bottleImageForCouleur(
+                            cuvee.couleurs[0]?.nom?.toLowerCase() || "blanc",
+                          )}
                           alt=""
                           width={20}
                           height={40}

@@ -36,12 +36,12 @@ export const couleurToImage: Record<string, string> = {
   blanc: `${BUCKET_URL}Blanc.png`,
   rouge: `${BUCKET_URL}Rouge.png`,
   bulles: `${BUCKET_URL}Bulles.png`,
-  pétillant: `${BUCKET_URL}Bulles.png`,
+  petillant: `${BUCKET_URL}Bulles.png`,
   rose: `${BUCKET_URL}Blanc.png`,
   orange: `${BUCKET_URL}Blanc.png`,
 };
 
 export function bottleImageForCouleur(nom: string | null | undefined): string {
-  const couleurNom = nom?.toLowerCase() || "blanc";
+  const couleurNom = nom ? normalizeNom(nom) : "blanc";
   return couleurToImage[couleurNom] || couleurToImage.blanc;
 }
