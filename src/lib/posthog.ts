@@ -5,16 +5,3 @@ export const posthogHost =
 export function isPostHogEnabled() {
   return posthogKey.length > 0;
 }
-
-export async function getPostHogServer() {
-  if (!isPostHogEnabled()) {
-    throw new Error("NEXT_PUBLIC_POSTHOG_KEY manquante.");
-  }
-
-  const { PostHog } = await import("posthog-node");
-  return new PostHog(posthogKey, {
-    host: posthogHost,
-    flushAt: 1,
-    flushInterval: 0,
-  });
-}
