@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EspaceMenu } from "@/components/espace-menu";
 
 function GrapeMark() {
   return (
@@ -29,7 +30,7 @@ export function SiteHeader() {
         <Link href="/" className="flex items-center gap-2">
           <GrapeMark />
           <span className="font-[family-name:var(--font-display)] text-[1.65rem] leading-none text-[#2c322c]">
-            Vinalia
+            Cellarote
           </span>
         </Link>
 
@@ -46,17 +47,7 @@ export function SiteHeader() {
               {link.label}
             </span>
           ))}
-          <button
-            type="button"
-            disabled
-            title="Bientôt disponible"
-            className="inline-flex items-center gap-1 rounded-full bg-[#3e5c45] px-4 py-2 text-sm text-white"
-          >
-            Mon espace
-            <span aria-hidden className="text-xs">
-              ▾
-            </span>
-          </button>
+          <EspaceMenu />
         </nav>
       </div>
     </header>

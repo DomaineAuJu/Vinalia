@@ -7,7 +7,7 @@ function normalizeSupabaseUrl(raw: string): string {
   return url;
 }
 
-function getSupabaseConfig() {
+export function getSupabaseConfig() {
   const rawUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const rawKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 

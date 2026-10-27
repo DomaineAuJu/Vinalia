@@ -7,7 +7,7 @@ export default function NotFound() {
         Page introuvable
       </h1>
       <p className="mt-3 text-[#5c5146]">
-        Ce lien ne correspond à aucun domaine publié sur Vinalia.
+        Ce lien ne correspond à aucun domaine publié sur Cellarote.
       </p>
       <Link
         href="/"

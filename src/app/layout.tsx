@@ -16,8 +16,8 @@ const fraunces = Fraunces({
 
 export const metadata: Metadata = {
   title: {
-    default: "Vinalia — vignerons de Loire",
-    template: "%s · Vinalia",
+    default: "Cellarote — vignerons de Loire",
+    template: "%s · Cellarote",
   },
   description:
     "Carte et fiches des domaines viticoles de Loire : appellations, communes et cuvées.",

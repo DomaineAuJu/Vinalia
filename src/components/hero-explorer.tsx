@@ -27,7 +27,7 @@ export function HeroExplorer({
           Pays nantais · Muscadet
         </p>
         <h1 className="mt-3 max-w-xl font-[family-name:var(--font-display)] text-4xl leading-[1.05] text-white sm:text-5xl">
-          Des vignerons, et sur tout le territoire.
+          découvrir et faire escale au coeur des domaines viticoles
         </h1>
         <div className="mt-8 flex max-w-xl items-center rounded-full bg-white p-1.5 shadow-lg">
           <span className="pl-4 text-[#8b9288]" aria-hidden>

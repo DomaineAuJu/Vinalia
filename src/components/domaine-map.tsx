@@ -25,7 +25,7 @@ const PIN_SVG = `
 `;
 
 const pinIcon = L.divIcon({
-  className: "vinalia-pin",
+  className: "cellarote-pin",
   iconSize: [32, 42],
   iconAnchor: [16, 41],
   tooltipAnchor: [0, -36],
@@ -83,7 +83,7 @@ function LeafletMap({ domaines, onSelect }: DomaineMapProps) {
           }}
         >
           <Tooltip
-            className="vinalia-tooltip"
+            className="cellarote-tooltip"
             direction="top"
             offset={[0, -8]}
             opacity={1}

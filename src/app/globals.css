@@ -44,33 +44,33 @@ body {
   border: 0 !important;
 }
 
-.vinalia-pin {
+.cellarote-pin {
   background: transparent;
   border: none;
 }
 
-.vinalia-popup .leaflet-popup-content-wrapper {
+.cellarote-popup .leaflet-popup-content-wrapper {
   border-radius: 14px;
   box-shadow: 0 12px 32px rgba(44, 50, 44, 0.16);
   padding: 2px 2px 4px;
 }
 
-.vinalia-popup .leaflet-popup-content {
+.cellarote-popup .leaflet-popup-content {
   margin: 12px 14px 14px;
 }
 
-.vinalia-popup .leaflet-popup-tip {
+.cellarote-popup .leaflet-popup-tip {
   box-shadow: none;
 }
 
-.vinalia-popup a.leaflet-popup-close-button {
+.callarote-popup a.leaflet-popup-close-button {
   color: #8b9288;
   font-size: 16px;
   top: 6px;
   right: 8px;
 }
 
-.vinalia-tooltip.leaflet-tooltip {
+.callarote-tooltip.leaflet-tooltip {
   border: 0;
   border-radius: 14px;
   background: #fffdf8;
@@ -80,6 +80,6 @@ body {
   white-space: normal;
 }
 
-.vinalia-tooltip.leaflet-tooltip-top::before {
+.cellarote-tooltip.leaflet-tooltip-top::before {
   border-top-color: #fffdf8;
 }
