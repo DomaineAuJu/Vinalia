@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { Suspense } from "react";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -30,10 +31,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${sourceSans.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
-        <PostHogProvider>
-          <SiteHeader />
-          {children}
-        </PostHogProvider>
+        <Suspense fallback={null}>
+          <PostHogProvider>
+            <SiteHeader />
+            {children}
+          </PostHogProvider>
+        </Suspense>
       </body>
     </html>
   );

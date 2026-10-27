@@ -1,7 +1,5 @@
-import { cookies } from "next/headers";
 import { VisitorSpaceClient } from "@/app/espace/visitor/visitor-space-client";
 
-export default async function VisitorSpacePage() {
-  await cookies();
+export default function VisitorSpacePage() {
   return <VisitorSpaceClient />;
 }
