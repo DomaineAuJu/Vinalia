@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { redirect } from "next/navigation";
 import { VigneronDashboard } from "@/components/dashboard/VigneronDashboard";
 import { getVigneronData } from "@/lib/services/vigneron";
