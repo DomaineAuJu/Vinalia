@@ -1,5 +1,4 @@
-export const dynamic = "force-dynamic";
-
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { VigneronDashboard } from "@/components/dashboard/VigneronDashboard";
 import { getVigneronData } from "@/lib/services/vigneron";
@@ -7,14 +6,12 @@ import { getUserProfile } from "@/lib/services/user-profile";
 import { createServerSupabase } from "@/lib/supabase/server";
 
 export default async function ProSpacePage() {
+  await cookies();
+
   const supabase = await createServerSupabase();
   const profile = await getUserProfile(supabase);
 
-  if (!profile) {
-    redirect("/login");
-  }
-
-  if (profile.role !== "pro") {
+  if (profile?.role !== "pro") {
     redirect("/espace/visitor");
   }
 
